@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+    wiki:
+        build: .
+        restart: always
+        volumes:
+            - ./wiki:/wiki
+        ports:
+            - 8080:4567
+        environment:
+            - GOLLUM_USER=gollum
+            - GOLLUM_EMAIL=gollum@gollum.org
+            - GOLLUM_PORT=4567
+            - GITHUB_OAUTH_CLIENT_ID=your_client_id
+            - GITHUB_OAUTH_SECRET=your_secret
+            - AUTHORIZED_USERS=example1@example.org,example2@example.org
+
